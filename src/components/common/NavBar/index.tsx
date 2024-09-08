@@ -8,7 +8,7 @@ const NavBar: FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="top-0 w-full fixed border-gray-200 dark:bg-gray-900 p-5 md:p-0">
+    <nav className="top-0 w-full fixed border-gray-200 dark:bg-gray-900 p-5 md:p-0 z-30">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 font-montserrat">
         <a
           href="https://flowbite.com/"

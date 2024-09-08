@@ -1,5 +1,6 @@
 "use client"; // Esto debe estar al principio del archivo
 
+import Gallery from "@/components/common/Home/Gallery";
 import Studio from "@/components/common/Home/Studio";
 import styled, { keyframes } from "styled-components";
 
@@ -55,6 +56,7 @@ export default function Home() {
         </div>
       </div>
       <Studio />
+      <Gallery />
     </main>
   );
 }

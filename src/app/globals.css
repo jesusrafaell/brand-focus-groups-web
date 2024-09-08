@@ -3,9 +3,17 @@
 @tailwind utilities;
 
 @import "@fontsource/montserrat";
+
 @font-face {
   font-family: "Nanum Pen Script";
-  src: url("/src/font/NanumPenScript-Regular.ttf") format("truetype");
+  src: url("/src/app/fonts/NanumPenScript-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/src/app/fonts/Inter.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

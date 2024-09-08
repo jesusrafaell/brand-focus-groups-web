@@ -2,40 +2,86 @@
 
 import imgC from "@/images/c.svg";
 import star from "@/images/star_icon.svg";
+import { motion, Variants } from "framer-motion";
 
 const Studio = () => {
+  const fadeX = (x: number): Variants => ({
+    hidden: { opacity: 0, x: x },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.9, ease: "easeOut", delay: 0.3 },
+    },
+  });
+
+  const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
   return (
-    <div className="bg-dark-bg">
-      <div className="min-h-screen text-white grid w-full justify-center items-center">
-        <div className="flex flex-col w-[80vw] md:w-[50vw]">
-          <h1 className="text-[40px] md:text-[85px] text-nowrap font-montserrat font-bold">
+    <div className="bg-dark-bg -mt-1">
+      <div className="min-h-[50vh] md:min-h-screen text-white grid w-full justify-center items-center">
+        <div className="flex flex-col w-[440px] md:w-[800px] lg:w-[1020px] px-10">
+          <motion.h1
+            className="text-[40px] md:text-[85px] text-nowrap font-montserrat font-bold"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeX(-100)}
+            viewport={{ once: true }} //una sola vez
+          >
             Brand Focus
-          </h1>
-          <h2 className="self-center text-[20px] md:text-[70px] text-nowrap font-montserrat text-bold flex">
-            <img
-              src={imgC.src}
-              alt="C"
-              width={50}
-              className="w-[20px] md:w-[50px]"
-            />
-            <span className="pl-2">Creative Studio</span>
-          </h2>
-          <p className="self-end pt-5 md:pt-10 text-gray-200 text-[9px] md:text-[16px] w-[200px] md:w-[350px]">
-            We design unique and powerful visual identities that connect with
-            your audience, transforming your vision into a memorable brand.
-          </p>
-        </div>
-        <div>
-          <div className="flex justify-center md:justify-start">
-            <div className="w-[50px] md:w-[150px] p-[3px] md:p-[7px] bg-dark-bg">
-              <img src={star.src} alt="star" className="w-full" />
-            </div>
-            <div className="w-[50px] md:w-[150px] -ml-[14px] lg:-ml-[50px] p-[3px] md:p-[7px] bg-dark-bg">
-              <img src={star.src} alt="star" className="w-full" />
-            </div>
+          </motion.h1>
+          <div className="self-end w-[80%] md:w-[80%] lg:w-[80%] flex flex-col">
+            <motion.h2
+              className="flex"
+              initial="hidden"
+              whileInView="visible"
+              variants={fadeX(100)}
+              viewport={{ once: true }} //una sola vez
+            >
+              <img
+                src={imgC.src}
+                alt="C"
+                width={50}
+                className="w-[20px] md:w-[50px]"
+              />
+              <span className="text-[34px] md:text-[70px] text-nowrap font-montserrat text-bold pl-2 md:pl-4">
+                Creative Studio
+              </span>
+            </motion.h2>
+            <motion.p
+              className="self-end pt-5 md:pt-10 text-gray-200 text-[12px] md:text-[16px] w-[280px] md:w-[380px] text-justify"
+              initial="hidden"
+              whileInView="visible"
+              variants={fadeUp}
+              viewport={{ once: true }}
+            >
+              We design unique and powerful visual identities that connect with
+              your audience, transforming your vision into a memorable brand.
+            </motion.p>
           </div>
+          <motion.div
+            className="w-[50px] md:w-[150px]"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeUp}
+            viewport={{ once: true }}
+          >
+            <img src={star.src} alt="star" className="w-full" />
+          </motion.div>
         </div>
-        <div className="uppercase flex flex-col justify-center items-center">
+        <motion.div
+          className="uppercase flex flex-col justify-center items-center"
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeUp}
+          viewport={{ once: true }}
+        >
           <span className="text-[12px] md:text-[20px]">
             AVAILABLE WORLDWIDe
           </span>
@@ -45,7 +91,7 @@ const Studio = () => {
           <span className="text-[25px] md:text-[32px] -mt-2 font-montserrat font-bold">
             &STRATEGIC DESIGN
           </span>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

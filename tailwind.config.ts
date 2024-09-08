@@ -11,6 +11,7 @@ const config: Config = {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
         nanum: ["Nanum Pen Script", "cursive"],
+        inter: ["Inter", "sans-serif"],
       },
       colors: {
         background: "var(--background)",
