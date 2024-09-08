@@ -1,92 +1,60 @@
 "use client"; // Esto debe estar al principio del archivo
 
+import Studio from "@/components/common/Home/Studio";
 import styled, { keyframes } from "styled-components";
 
 export default function Home() {
   return (
-    <main className="bg-custom-bg bg-custom-gradient min-h-screen text-white">
-      <div className="grid items-center justify-center min-h-[90vh]">
-        <div className="text-[24px] md:text-[45px] font-montserrat flex uppercase box-content h-[40px] md:h-[70px]">
-          <h1 className="font-bold">focus in your&nbsp;</h1>
-          <div className="overflow-hidden">
-            <FlipSpan>Brand</FlipSpan>
-            <FlipSpan>Dream</FlipSpan>
-            <FlipSpan>Style</FlipSpan>
+    <main>
+      <div className="bg-custom-bg bg-custom-gradient min-h-screen text-white">
+        <div className="grid items-center justify-center min-h-[90vh]">
+          <div className="text-[24px] md:text-[45px] font-montserrat flex uppercase box-content h-[40px] md:h-[70px]">
+            <h1 className="font-bold">focus in your&nbsp;</h1>
+            <div className="overflow-hidden">
+              <FlipSpan>Brand</FlipSpan>
+              <FlipSpan>Dream</FlipSpan>
+              <FlipSpan>Style</FlipSpan>
+            </div>
           </div>
         </div>
+        <div className="relative py-5 px-20">
+          <MarqueeContainer>
+            <MarqueeInner className="font-nanum">
+              <span className="text-center text-nowrap px-4">
+                creating unforgettable experiences
+              </span>
+              <span className="text-center text-nowrap px-4">
+                creating unforgettable experiences
+              </span>
+              <span className="text-center text-nowrap px-4">
+                creating unforgettable experiences
+              </span>
+              <span className="text-center text-nowrap px-4">
+                creating unforgettable experiences
+              </span>
+              <span className="text-center text-nowrap px-4">
+                creating unforgettable experiences
+              </span>
+              <span className="text-center text-nowrap px-4">
+                creating unforgettable experiences
+              </span>
+              <span className="text-center text-nowrap px-4">
+                creating unforgettable experiences
+              </span>
+              <span className="text-center text-nowrap px-4">
+                creating unforgettable experiences
+              </span>
+              <span className="text-center text-nowrap px-4">
+                creating unforgettable experiences
+              </span>
+              <span className="text-center text-nowrap px-4">
+                creating unforgettable experiences
+              </span>
+            </MarqueeInner>
+          </MarqueeContainer>
+        </div>
       </div>
-      <div className="relative py-5 px-20">
-        <MarqueeContainer>
-          <MarqueeInner className="font-nanum">
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-          </MarqueeInner>
-        </MarqueeContainer>
-      </div>
-      {/* <div className="relative py-5 px-20"> 
-         <MarqueeContainer>
-          <MarqueeInner2 className="font-nanum">
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-            <span className="text-center text-nowrap px-4">
-              creating unforgettable experiences
-            </span>
-          </MarqueeInner2>
-        </MarqueeContainer>
-      </div> */}
+      <Studio />
     </main>
   );
 }
@@ -159,15 +127,6 @@ const MarqueeInner = styled.div`
   transform: translate3d(${moveInitial}, 0, 0);
   animation-play-state: running;
   animation: ${marquee} 8s linear infinite;
-  opacity: 1;
-  transition: opacity 0.4s;
-`;
-
-const MarqueeInner2 = styled.div`
-  width: fit-content;
-  display: flex;
-  position: relative;
-  transform: translate3d(${moveFinal}, 0, 0);
   opacity: 1;
   transition: opacity 0.4s;
 `;

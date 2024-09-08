@@ -1,7 +1,5 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import { usePathname } from "next/navigation";
 import { FC, useState } from "react";
 import logo from "@/images/logo.svg";
 

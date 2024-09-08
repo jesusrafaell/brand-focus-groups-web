@@ -16,6 +16,7 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         "custom-bg": "rgb(28,0,65)",
+        "dark-bg": "#161616",
       },
       backgroundImage: {
         "custom-gradient":
