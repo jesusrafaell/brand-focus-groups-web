@@ -2,23 +2,22 @@
 
 import { FC, useState } from "react";
 import logo from "@/images/logo.svg";
+import Link from "next/link";
+import Image from "next/image";
 
 const NavBar: FC = () => {
   //   const t = useTranslations("NavBar");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <nav className="top-0 w-full fixed border-gray-200 dark:bg-gray-900 p-5 md:p-0 z-30">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 font-montserrat">
-        <a
-          href="https://flowbite.com/"
+        <Link
+          href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <img src={logo.src} className="h-8" alt="Flowbite Logo" />
-          {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            Brand Focus Group
-          </span> */}
-        </a>
+          <Image src={logo} className="h-8" alt="Flowbite Logo" />
+        </Link>
         <button
           data-collapse-toggle="navbar-default"
           type="button"
@@ -55,12 +54,12 @@ const NavBar: FC = () => {
               </a>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/about"
                 className="block py-2 px-3 text-white rounded md:bg-transparent hover:text-gray-500 md:p-0"
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>
               <a

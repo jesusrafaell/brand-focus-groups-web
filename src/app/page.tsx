@@ -2,13 +2,21 @@
 
 import Gallery from "@/components/common/Home/Gallery";
 import Studio from "@/components/common/Home/Studio";
+import { fadeOpacity } from "@/utils/fadesFrame";
+import { motion } from "framer-motion";
 import styled, { keyframes } from "styled-components";
 
 export default function Home() {
   return (
     <main>
       <div className="bg-custom-bg bg-custom-gradient min-h-screen text-white">
-        <div className="grid items-center justify-center min-h-[90vh]">
+        <motion.div
+          className="grid items-center justify-center min-h-[90vh]"
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeOpacity()}
+          viewport={{ once: true }} //una sola vez
+        >
           <div className="text-[24px] md:text-[45px] font-montserrat flex uppercase box-content h-[40px] md:h-[70px]">
             <h1 className="font-bold">focus in your&nbsp;</h1>
             <div className="overflow-hidden">
@@ -17,7 +25,7 @@ export default function Home() {
               <FlipSpan>Style</FlipSpan>
             </div>
           </div>
-        </div>
+        </motion.div>
         <div className="relative py-5 px-20">
           <MarqueeContainer>
             <MarqueeInner className="font-nanum">

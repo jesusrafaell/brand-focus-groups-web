@@ -1,19 +1,12 @@
 "use client";
 
 import { EllipseGlow } from "@/utils/elipseGlow";
+import { fadeUpDelay } from "@/utils/fadesFrame";
 import { motion, Variants } from "framer-motion";
+import Link from "next/link";
 import styled from "styled-components";
 
 const Footer = () => {
-  const fadeUp = (d = 0.3): Variants => ({
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut", delay: d },
-    },
-  });
-
   return (
     <footer className="bg-dark-bg overflow-hidden -mt-1">
       <div className="relative">
@@ -23,7 +16,7 @@ const Footer = () => {
               <motion.span
                 initial="hidden"
                 whileInView="visible"
-                variants={fadeUp(0.2)}
+                variants={fadeUpDelay(0.2)}
                 // viewport={{ once: true }}
               >
                 <LinkFooter>projects</LinkFooter>
@@ -31,17 +24,19 @@ const Footer = () => {
               <motion.span
                 initial="hidden"
                 whileInView="visible"
-                variants={fadeUp(0.3)}
+                variants={fadeUpDelay(0.3)}
                 // viewport={{ once: true }}
               >
-                <LinkFooter>about</LinkFooter>
+                <Link href="/about">
+                  <LinkFooter>about</LinkFooter>
+                </Link>
               </motion.span>
             </div>
             <div className="flex gap-x-10">
               <motion.span
                 initial="hidden"
                 whileInView="visible"
-                variants={fadeUp(0.4)}
+                variants={fadeUpDelay(0.4)}
                 // viewport={{ once: true }}
               >
                 <LinkFooter>templates</LinkFooter>
@@ -49,7 +44,7 @@ const Footer = () => {
               <motion.span
                 initial="hidden"
                 whileInView="visible"
-                variants={fadeUp(0.5)}
+                variants={fadeUpDelay(0.5)}
                 // viewport={{ once: true }}
               >
                 <LinkFooter>services</LinkFooter>
@@ -58,7 +53,7 @@ const Footer = () => {
             <motion.span
               initial="hidden"
               whileInView="visible"
-              variants={fadeUp(0.6)}
+              variants={fadeUpDelay(0.6)}
               // viewport={{ once: true }}
             >
               <LinkFooter className="flex flex-col relative group relative flex">

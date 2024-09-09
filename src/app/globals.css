@@ -14,7 +14,7 @@
 @font-face {
   font-family: "Montserrat-ExtraBold";
   src: url("/src/app/fonts/Montserrat-ExtraBold.ttf") format("truetype");
-  font-weight: 800; /* ExtraBold */
+  font-weight: 800;
   font-style: normal;
 }
 

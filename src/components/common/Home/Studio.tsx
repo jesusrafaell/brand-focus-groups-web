@@ -3,6 +3,7 @@
 import imgC from "@/images/c.svg";
 import star from "@/images/star_icon.svg";
 import { motion, Variants } from "framer-motion";
+import Image from "next/image";
 
 const Studio = () => {
   const fadeX = (x: number): Variants => ({
@@ -44,8 +45,8 @@ const Studio = () => {
               variants={fadeX(100)}
               viewport={{ once: true }} //una sola vez
             >
-              <img
-                src={imgC.src}
+              <Image
+                src={imgC}
                 alt="C"
                 width={50}
                 className="w-[20px] md:w-[50px]"
@@ -72,7 +73,7 @@ const Studio = () => {
             variants={fadeUp}
             viewport={{ once: true }}
           >
-            <img src={star.src} alt="star" className="w-full" />
+            <Image src={star} alt="star" className="w-full" />
           </motion.div>
         </div>
         <motion.div

@@ -9,6 +9,7 @@ import imagen6 from "@/images/home/imagen_6.png";
 import imagen7 from "@/images/home/imagen_7.png";
 import { EllipseGlow } from "@/utils/elipseGlow";
 import { motion, Variants } from "framer-motion";
+import Image from "next/image";
 
 const Gallery = () => {
   const fadeUp: Variants = {
@@ -71,11 +72,11 @@ const Gallery = () => {
               className="flex flex-col max-w-[40%] justify-between items-between"
               variants={fadeUp2}
             >
-              <img src={imagen3.src} alt="imagen3" className="w-full" />
-              <img src={imagen4.src} alt="imagen4" className="w-full" />
+              <Image src={imagen3} alt="imagen3" className="w-full" />
+              <Image src={imagen4} alt="imagen4" className="w-full" />
             </motion.div>
             <motion.div className="max-w-[60%]" variants={fadeUp}>
-              <img src={imagen5.src} alt="imagen5" />
+              <Image src={imagen5} alt="imagen5" />
             </motion.div>
           </motion.div>
           <motion.div
