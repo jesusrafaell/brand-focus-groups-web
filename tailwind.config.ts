@@ -12,6 +12,7 @@ const config: Config = {
         montserrat: ["Montserrat", "sans-serif"],
         nanum: ["Nanum Pen Script", "cursive"],
         inter: ["Inter", "sans-serif"],
+        montserratBold: ['"Montserrat-ExtraBold"', "sans-serif"],
       },
       colors: {
         background: "var(--background)",

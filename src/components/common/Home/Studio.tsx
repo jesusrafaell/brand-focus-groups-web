@@ -82,13 +82,13 @@ const Studio = () => {
           variants={fadeUp}
           viewport={{ once: true }}
         >
-          <span className="text-[12px] md:text-[20px]">
+          <span className="text-[12px] md:text-[20px] font-inter">
             AVAILABLE WORLDWIDe
           </span>
-          <span className="text-[25px] md:text-[32px] font-montserrat font-bold">
+          <span className="text-[27px] md:text-[36.7px] font-montserratBold font-extrabold ">
             CREATIVE STUDIO
           </span>
-          <span className="text-[25px] md:text-[32px] -mt-2 font-montserrat font-bold">
+          <span className="text-[23.5px] md:text-[32px] -mt-2 font-montserratBold font-extrabold ">
             &STRATEGIC DESIGN
           </span>
         </motion.div>
