@@ -9,7 +9,12 @@ import styled, { keyframes } from "styled-components";
 export default function Home() {
   return (
     <main>
-      <div className="bg-custom-bg bg-custom-gradient min-h-screen text-white">
+      <div
+        className="bg-no-repeat bg-cover bg-center min-h-screen text-white"
+        style={{
+          backgroundImage: "url('/images/bg-home.png')", // Ruta de la imagen en la carpeta public
+        }}
+      >
         <motion.div
           className="grid items-center justify-center min-h-[90vh]"
           initial="hidden"
@@ -18,7 +23,7 @@ export default function Home() {
           viewport={{ once: true }} //una sola vez
         >
           <div className="text-[24px] md:text-[45px] font-montserrat flex uppercase box-content h-[40px] md:h-[70px]">
-            <h1 className="font-bold">focus in your&nbsp;</h1>
+            <h1 className="font-montserratBold">focus in your&nbsp;</h1>
             <div className="overflow-hidden">
               <FlipSpan>Brand</FlipSpan>
               <FlipSpan>Dream</FlipSpan>
@@ -26,7 +31,7 @@ export default function Home() {
             </div>
           </div>
         </motion.div>
-        <div className="relative py-5 px-20">
+        <div className="relative py-5 px-20 text-[25px]">
           <MarqueeContainer>
             <MarqueeInner className="font-nanum">
               <span className="text-center text-nowrap px-4">

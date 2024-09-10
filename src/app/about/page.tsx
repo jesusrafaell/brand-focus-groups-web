@@ -9,24 +9,23 @@ import { motion } from "framer-motion";
 import { fadeOpacity, fadeUpDelay, fadeUpY } from "@/utils/fadesFrame";
 import Image from "next/image";
 
-export default function Home() {
+export default function About() {
   return (
     <main className="bg-aboutground">
       {/* title */}
       <div
         id="about-1"
-        // pt-[15rem]
         className="min-h-screen text-white flex flex-col items-center justify-center"
       >
         <div className="flex flex-col jusitfy-center items-center w-full max-w-[80%] gap-y-20">
           <motion.div
-            className="text-[22px] md:text-[45px] font-montserrat font-bold flex w-full uppercase px-10 flex flex-col"
+            className="text-[22px] md:text-[45px] font-montserratBold font-bold flex w-full uppercase px-10 flex flex-col"
             initial="hidden"
             whileInView="visible"
             variants={fadeOpacity()}
             viewport={{ once: true }} //una sola vez
           >
-            <span className="font-bold flex">
+            <span className="flex">
               Brand focus
               <Image
                 src={imgC}
@@ -45,7 +44,7 @@ export default function Home() {
             variants={fadeUpDelay(0.5)}
             viewport={{ once: true }} //una sola vez
           >
-            <h2 className="text-[14px] md:text-[30px] uppercase font-nanum text-nowrap">
+            <h2 className="text-[20px] md:text-[40px] uppercase font-nanum text-nowrap">
               {"let's start now"}
             </h2>
           </motion.div>

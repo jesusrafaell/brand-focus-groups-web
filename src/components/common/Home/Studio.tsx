@@ -2,8 +2,9 @@
 
 import imgC from "@/images/c.svg";
 import star from "@/images/star_icon.svg";
-import { motion, Variants } from "framer-motion";
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const Studio = () => {
   const fadeX = (x: number): Variants => ({
@@ -24,12 +25,37 @@ const Studio = () => {
     },
   };
 
+  const { scrollYProgress } = useScroll(); // Detecta el progreso de scroll
+
+  // Transformación de rotación en base al progreso del scroll
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 360], {
+    clamp: false,
+  });
+
+  const [rotation, setRotation] = useState(0);
+
+  useEffect(() => {
+    const scrollPosition = window.scrollY;
+    setRotation(scrollPosition / 10);
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setRotation(scrollPosition / 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="bg-dark-bg -mt-1">
       <div className="min-h-[50vh] md:min-h-screen text-white grid w-full justify-center items-center">
         <div className="flex flex-col w-[440px] md:w-[800px] lg:w-[1020px] px-10">
           <motion.h1
-            className="text-[40px] md:text-[85px] text-nowrap font-montserrat font-bold"
+            className="text-[40px] md:text-[85px] text-nowrap font-montserratBold"
             initial="hidden"
             whileInView="visible"
             variants={fadeX(-100)}
@@ -49,14 +75,14 @@ const Studio = () => {
                 src={imgC}
                 alt="C"
                 width={50}
-                className="w-[20px] md:w-[50px]"
+                className="w-[15px] md:w-[30px] self-start mt-2 md:pt-4"
               />
-              <span className="text-[34px] md:text-[70px] text-nowrap font-montserrat text-bold pl-2 md:pl-4">
+              <span className="text-[34px] md:text-[70px] text-nowrap font-montserrat font-bold pl-2">
                 Creative Studio
               </span>
             </motion.h2>
             <motion.p
-              className="self-end pt-5 md:pt-10 text-gray-200 text-[12px] md:text-[16px] w-[280px] md:w-[380px] text-justify"
+              className="self-end pt-5 md:pt-10 text-gray-200 text-[12px] md:text-[16px] w-[280px] md:w-[400px] text-justify"
               initial="hidden"
               whileInView="visible"
               variants={fadeUp}
@@ -73,7 +99,18 @@ const Studio = () => {
             variants={fadeUp}
             viewport={{ once: true }}
           >
-            <Image src={star} alt="star" className="w-full" />
+            <div
+              className="w-[50px] md:w-[150px] pin"
+              style={{
+                transform: `rotate(${rotation}deg)`, // Aplica la rotación calculada
+                top: "50px",
+                left: "50px",
+                fontSize: "30px",
+                transition: "transform 0.4s ease-out", // Transición suave de 0.3 segundos
+              }}
+            >
+              <Image src={star} alt="star" className="w-full" />
+            </div>
           </motion.div>
         </div>
         <motion.div
@@ -83,14 +120,14 @@ const Studio = () => {
           variants={fadeUp}
           viewport={{ once: true }}
         >
-          <span className="text-[12px] md:text-[20px] font-inter">
-            AVAILABLE WORLDWIDe
-          </span>
           <span className="text-[27px] md:text-[36.7px] font-montserratBold font-extrabold ">
             CREATIVE STUDIO
           </span>
           <span className="text-[23.5px] md:text-[32px] -mt-2 font-montserratBold font-extrabold ">
             &STRATEGIC DESIGN
+          </span>
+          <span className="text-[12px] md:text-[20px] font-inter mt-2">
+            AVAILABLE WORLDWIDe
           </span>
         </motion.div>
       </div>

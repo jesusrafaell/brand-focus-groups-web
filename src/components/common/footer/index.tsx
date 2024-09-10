@@ -19,7 +19,9 @@ const Footer = () => {
                 variants={fadeUpDelay(0.2)}
                 // viewport={{ once: true }}
               >
-                <LinkFooter>projects</LinkFooter>
+                <Link href="/projects">
+                  <LinkFooter>projects</LinkFooter>
+                </Link>
               </motion.span>
               <motion.span
                 initial="hidden"
@@ -31,45 +33,51 @@ const Footer = () => {
                   <LinkFooter>about</LinkFooter>
                 </Link>
               </motion.span>
-            </div>
-            <div className="flex gap-x-10">
               <motion.span
                 initial="hidden"
                 whileInView="visible"
                 variants={fadeUpDelay(0.4)}
                 // viewport={{ once: true }}
               >
-                <LinkFooter>templates</LinkFooter>
+                <Link href="/templates">
+                  <LinkFooter>templates</LinkFooter>
+                </Link>
               </motion.span>
+            </div>
+            <div className="flex gap-x-10">
               <motion.span
                 initial="hidden"
                 whileInView="visible"
                 variants={fadeUpDelay(0.5)}
                 // viewport={{ once: true }}
               >
-                <LinkFooter>services</LinkFooter>
+                <Link href="/services">
+                  <LinkFooter>services</LinkFooter>
+                </Link>
               </motion.span>
-            </div>
-            <motion.span
-              initial="hidden"
-              whileInView="visible"
-              variants={fadeUpDelay(0.6)}
-              // viewport={{ once: true }}
-            >
-              <LinkFooter className="flex flex-col relative group relative flex">
-                Focus in
-                <b
-                  className="text-[15px] text-nowrap absolute left-0 -bottom-[20px] 
+              <motion.span
+                initial="hidden"
+                whileInView="visible"
+                variants={fadeUpDelay(0.6)}
+                // viewport={{ once: true }}
+              >
+                <Link href="/focus">
+                  <LinkFooter className="flex flex-col relative group relative flex">
+                    Focus in
+                    <b
+                      className="text-[15px] text-nowrap absolute left-0 -bottom-[20px] 
                transition-[left] duration-500 ease-in-out 
                group-hover:left-[110%] 
                group-hover:delay-0 group-hover:transition-[top] 
                group-hover:top-[5px] 
                transition-[top] delay-500 ease-in-out"
-                >
-                  your brand
-                </b>
-              </LinkFooter>
-            </motion.span>
+                    >
+                      your brand
+                    </b>
+                  </LinkFooter>
+                </Link>
+              </motion.span>
+            </div>
           </div>
         </div>
         <div className="absolute bottom-0 left-0 z-1 overflow-hidden p-10 md:p-10">
@@ -102,15 +110,11 @@ const LinkFooter = styled.span`
     content: "";
     position: absolute;
     left: 0;
-    bottom: -2px; /* Ajusta esta distancia si es necesario */
+    bottom: -2px;
     width: 0;
-    height: 2px; /* Grosor de la línea */
-    background: linear-gradient(
-      to right,
-      #9747ff,
-      #5b2b99
-    ); /* Gradiente de amarillo */
-    transition: width 0.5s ease-in-out; /* Animación suave */
+    height: 2px;
+    background: linear-gradient(to right, #9747ff, #5b2b99);
+    transition: width 0.5s ease-in-out;
   }
 
   &:hover::after {
