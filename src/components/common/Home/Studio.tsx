@@ -51,9 +51,9 @@ const Studio = () => {
   }, []);
 
   return (
-    <div className="bg-dark-bg -mt-1">
+    <div className="bg-dark-bg -mt-1 overflow-hidden">
       <div className="min-h-[50vh] md:min-h-screen text-white grid w-full justify-center items-center">
-        <div className="flex flex-col w-[440px] md:w-[800px] lg:w-[1020px] px-10">
+        <div className="flex flex-col px-20">
           <motion.h1
             className="text-[40px] md:text-[85px] text-nowrap font-montserratBold"
             initial="hidden"
@@ -63,7 +63,7 @@ const Studio = () => {
           >
             Brand Focus
           </motion.h1>
-          <div className="self-end w-[80%] md:w-[80%] lg:w-[80%] flex flex-col">
+          <div className="md:self-end md:w-[80%] lg:w-[80%] flex flex-col">
             <motion.h2
               className="flex"
               initial="hidden"
@@ -82,7 +82,7 @@ const Studio = () => {
               </span>
             </motion.h2>
             <motion.p
-              className="self-end pt-5 md:pt-10 text-gray-200 text-[12px] md:text-[16px] w-[280px] md:w-[400px] text-justify"
+              className="md:self-end pb-5 md:pt-10 text-gray-200 text-[12px] md:text-[16px] md:w-[52%] text-justify"
               initial="hidden"
               whileInView="visible"
               variants={fadeUp}

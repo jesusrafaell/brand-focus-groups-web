@@ -12,7 +12,6 @@ import Image from "next/image";
 export default function About() {
   return (
     <main className="bg-aboutground">
-      {/* title */}
       <div
         id="about-1"
         className="min-h-screen text-white flex flex-col items-center justify-center"
@@ -51,7 +50,7 @@ export default function About() {
         </div>
       </div>
       {/* info */}
-      <div className="flex justify-center items-end w-full py-20">
+      <div className="flex justify-center items-center md:items-end w-full py-20">
         <motion.div
           className="grid md:grid-cols-3 text-white gap-x-5 px-10 gap-y-5 md:gap-y-0"
           initial="hidden"
@@ -59,13 +58,13 @@ export default function About() {
           variants={fadeUpY()}
           viewport={{ once: true }} //una sola vez
         >
-          <div className="w-[300px] md:w-[400px] flex justify-center md:justify-start">
-            <h2 className="text-[25px] font-montserrat font-bold capitalize">
-              creative studio
+          <ContainerCard>
+            <h2 className="text-[30px] md:text-[25px] font-montserrat font-bold capitalize flex md:block flex-col gap-x-2 items-center">
+              <span>creative</span> <span>studio</span>
             </h2>
-          </div>
-          <div className="md:flex-col gap-y-10 w-[300px] md:w-[400px] grid grid-cols-2 gap-x-3 md:flex">
-            <div className="flex flex-col font-montserrat leading-none space-y-[2px] max-w-[250px]">
+          </ContainerCard>
+          <ContainerCard>
+            <InnerCard>
               <h2 className="text-[24px] uppercase ">services</h2>
               <h3 className="text-[40px] md:text-[60px] font-montserratBold font-bold">
                 03
@@ -73,8 +72,8 @@ export default function About() {
               <p className="text-[14px]">
                 Branding, Web Development, Strategy,
               </p>
-            </div>
-            <div className="flex flex-col font-montserrat leading-none space-y-[2px] max-w-[250px]">
+            </InnerCard>
+            <InnerCard>
               <h2 className="text-[24px] uppercase ">brands</h2>
               <h3 className="text-[40px] md:text-[60px] font-montserratBold font-bold">
                 +40
@@ -83,10 +82,10 @@ export default function About() {
                 Branding, Web Development, Digital Products, Content, Strategy,
                 Templates, Video edition.
               </p>
-            </div>
-          </div>
-          <div className="md:flex-col gap-y-10 w-[300px] md:w-[400px] grid grid-cols-2 gap-x-3 md:flex">
-            <div className="flex flex-col font-montserrat leading-none space-y-[2px] max-w-[250px]">
+            </InnerCard>
+          </ContainerCard>
+          <ContainerCard>
+            <InnerCard>
               <h2 className="text-[24px] uppercase ">years</h2>
               <h3 className="text-[40px] md:text-[60px] font-montserratBold font-bold">
                 05
@@ -95,8 +94,8 @@ export default function About() {
                 We are proud of our years of experience, we continue to grow
                 little by little
               </p>
-            </div>
-            <div className="flex flex-col font-montserrat leading-none space-y-[2px] max-w-[250px]">
+            </InnerCard>
+            <InnerCard>
               <h2 className="text-[24px] uppercase ">clients</h2>
               <h3 className="text-[40px] md:text-[60px] font-montserratBold font-bold">
                 +27
@@ -105,13 +104,13 @@ export default function About() {
                 We are proud of our years of experience, we continue to grow
                 little by little
               </p>
-            </div>
-          </div>
+            </InnerCard>
+          </ContainerCard>
         </motion.div>
       </div>
       <div className="flex justify-center items-center pb-20 pt-10">
         <motion.div
-          className="grid md:grid-cols-3 gap-x-5 px-10 md:h-[500px] overflow-hidden"
+          className="grid md:grid-cols-3 gap-x-5 jusitfy-center md:min-h-[500px] overflow-hidden"
           initial="hidden"
           whileInView="visible"
           variants={fadeUpDelay(0)}
@@ -152,3 +151,59 @@ export default function About() {
     </main>
   );
 }
+
+const ContainerCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    align-items: flex-start;
+    width: 400px;
+    gap: 1.5rem;
+  }
+`;
+
+const InnerCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1;
+  max-width: 250px;
+  height: 150px;
+  text-align: start;
+
+  @media (max-width: 768px) {
+    row-gap: 5px;
+    max-width: 200px;
+    text-align: center;
+  }
+
+  & > h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+
+  & > h3 {
+    font-size: 40px;
+
+    @media (min-width: 768px) {
+      font-size: 60px;
+    }
+
+    font-family: "MontserratBold", sans-serif;
+    font-weight: bold;
+  }
+
+  & > p {
+    font-size: 12px;
+
+    @media (min-width: 768px) {
+      font-size: 14px;
+    }
+  }
+
+  & > *:not(:last-child) {
+    margin-bottom: 2px; /* space-y-[2px] equivalent */
+  }
+`;

@@ -7,6 +7,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import { fadeOpacity } from "@/utils/fadesFrame";
 
 const NavBar: FC = () => {
   const pathname = usePathname();
@@ -20,7 +22,13 @@ const NavBar: FC = () => {
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse text-white"
         >
-          <div className="relative hover:scale-110 active:scale-95 transition-transform duration-300 ease-in-out cursor-pointer">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeOpacity()}
+            viewport={{ once: true }}
+            className="relative hover:scale-110 active:scale-95 transition-transform duration-300 ease-in-out cursor-pointer"
+          >
             <LogoImage
               src={logo}
               isVisible={isHomeRoute}
@@ -31,7 +39,7 @@ const NavBar: FC = () => {
               isVisible={!isHomeRoute}
               alt="brand focus group v2"
             />
-          </div>
+          </motion.div>
         </Link>
         <button
           data-collapse-toggle="navbar-default"
@@ -60,13 +68,13 @@ const NavBar: FC = () => {
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="uppercase font-medium flex flex-col p-4 d:p-2 mt-4 md:flex-row md:space-x-20 rtl:space-x-reverse md:mt-0">
             <li>
-              <a
+              <Link
                 href="/projects"
                 className="block py-2 px-3 text-white rounded md:bg-transparent hover:text-gray-500 md:p-0"
                 aria-current="page"
               >
                 Projects
-              </a>
+              </Link>
             </li>
             <li>
               <Link
@@ -77,15 +85,23 @@ const NavBar: FC = () => {
               </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/templates"
                 className="block py-2 px-3 text-white rounded md:bg-transparent hover:text-gray-500 md:p-0"
               >
                 Templates
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
+                href="/services"
+                className="block py-2 px-3 text-white rounded md:bg-transparent hover:text-gray-500 md:p-0"
+              >
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/focus"
                 className="block py-2 px-3 text-white rounded md:bg-transparent hover:text-gray-500 md:p-0"
               >
@@ -99,7 +115,7 @@ const NavBar: FC = () => {
                     your brand
                   </b>
                 </div>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -109,7 +125,7 @@ const NavBar: FC = () => {
 };
 
 const LogoImage = styled(Image)<{ isVisible: boolean }>`
-  height: 2rem; // Ajuste de altura del logo
+  height: 2rem;
   transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
   transform-origin: center;
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
