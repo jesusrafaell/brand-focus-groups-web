@@ -2,23 +2,21 @@
 
 import { useState, useEffect } from "react";
 import styled, { css, keyframes } from "styled-components";
-import { IContent, services } from "./data";
+import { services } from "./data";
 import { SlArrowLeft } from "react-icons/sl";
-import { data } from "framer-motion/client";
 import { motion } from "framer-motion";
 import { fadeOpacity } from "@/utils/fadesFrame";
 
 export default function Services() {
-  const [selected, setSelected] = useState<IContent>(services.services);
-  const [expandedItem, setExpandedItem] = useState<number | null>(null); // Estado para manejar el item expandido
+  const [selected, setSelected] = useState(services.services);
+  const [expandedItem, setExpandedItem] = useState<number | null>(null);
 
-  // State to track changes in selected.name for triggering animations
   const [nameChanged, setNameChanged] = useState<boolean>(false);
 
   const handleClickItem = (
     query: "services" | "branding" | "webDevelopment" | "strategy"
   ) => {
-    setNameChanged(true); // Trigger the opacity animation
+    setNameChanged(true);
     setSelected(services[query]);
     setExpandedItem(null);
   };
@@ -26,8 +24,8 @@ export default function Services() {
   useEffect(() => {
     if (nameChanged) {
       const timer = setTimeout(() => {
-        setNameChanged(false); // Reset after animation
-      }, 500); // Duration of the animation
+        setNameChanged(false);
+      }, 500);
 
       return () => clearTimeout(timer);
     }

@@ -1,4 +1,4 @@
-"use client"; // Esto debe estar al principio del archivo
+"use client";
 
 export default function Projects() {
   return (

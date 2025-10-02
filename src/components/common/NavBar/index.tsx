@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC } from "react";
 import logo from "@/images/logo.svg";
 import logo2 from "@/images/logo_v2.svg";
 import Link from "next/link";

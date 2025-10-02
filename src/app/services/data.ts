@@ -1,15 +1,4 @@
-interface Items {
-  title: string;
-  desc?: string;
-  class?: string;
-  query?: string;
-}
-
-export interface IContent {
-  name: string;
-  left: Items;
-  right: Items[];
-}
+import { IContent, IServices } from "@/interfaces/services";
 
 const servicesItems: IContent = {
   name: "services",
@@ -60,14 +49,7 @@ const brandingItems: IContent = {
   ],
 };
 
-interface ServicesI {
-  services: IContent;
-  branding: IContent;
-  webDevelopment: IContent;
-  strategy: IContent;
-}
-
-export const services: ServicesI = {
+export const services: IServices = {
   services: servicesItems,
   branding: brandingItems,
   webDevelopment: brandingItems,

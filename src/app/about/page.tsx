@@ -1,6 +1,6 @@
-"use client"; // Esto debe estar al principio del archivo
+"use client";
 
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import imgC from "@/images/c.svg";
 import about1 from "@/images/about/about_1.png";
 import about2 from "@/images/about/about_2.png";
@@ -114,7 +114,7 @@ export default function About() {
           initial="hidden"
           whileInView="visible"
           variants={fadeUpDelay(0)}
-          viewport={{ once: true }} //una sola vez
+          viewport={{ once: true }}
         >
           <motion.div
             className="w-[300px] md:w-[400px]"
@@ -204,6 +204,6 @@ const InnerCard = styled.div`
   }
 
   & > *:not(:last-child) {
-    margin-bottom: 2px; /* space-y-[2px] equivalent */
+    margin-bottom: 2px;
   }
 `;
